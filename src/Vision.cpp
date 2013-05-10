@@ -48,8 +48,10 @@ void colorTracking() {
 			imgScribble = cvCreateImage(cvGetSize(frame), 8, 3);
 		}
 
+		// Green Christmas Ornament
 		CvScalar minHSV = cvScalar(81, 100, 100);
 		CvScalar maxHSV = cvScalar(91, 255, 255);
+
 
 //		    printf("Hue: %d Saturation: %d Value: %d \n", hue, saturation, value);
 //		    CvScalar minHSV = cvScalar(hue, saturation, value);
@@ -97,9 +99,66 @@ void colorTracking() {
 
 }
 
+void circleTracking() {
+	VideoCapture cap( CV_CAP_ANY );
+	if ( !cap.isOpened() ) {
+		fprintf( stderr, "ERROR: Could not initialize capturing. \n" );
+		getchar();
+	}
+	// Create a window in which the captured images will be presented
+	namedWindow( "video", CV_WINDOW_AUTOSIZE );
+
+	// Show the image captured from the camera in the window and repeat
+	while ( true ) {
+		// Get one frame
+		Mat frame, frame_gray, mask;
+		cap >> frame;
+
+//		// Convert to HSV
+//		cvtColor(frame, mask, CV_BGR2HSV);
+//		// Green Christmas Ornament
+//		Scalar minHSV = Scalar(81, 100, 100);
+//		Scalar maxHSV = Scalar(91, 255, 255);
+//		inRange(mask, minHSV, maxHSV, frame_gray);
+//		Mat element21 = getStructuringElement(MORPH_RECT, Size(21,21), Point(10,10));
+//		morphologyEx(frame_gray, frame_gray, MORPH_OPEN, element21);
+//		Mat element11 = getStructuringElement(MORPH_RECT, Size(11,11), Point(5,5));
+//		morphologyEx(frame_gray, frame_gray, MORPH_CLOSE, element21);
+
+		// Convert to grayscale
+		cvtColor(frame, frame_gray, CV_BGR2GRAY);
+
+		// Reduce noise
+		GaussianBlur(frame_gray, frame_gray, Size(9,9), 2, 2);
+
+		vector<Vec3f> circles;
+
+		// Apply Hough Transform to find circles
+		HoughCircles( frame_gray, circles, CV_HOUGH_GRADIENT, 1, frame_gray.rows/8, 200, 100, 0, 0 );
+		printf("There are %d circles!\n", circles.size());
+
+		for (size_t i = 0; i < circles.size(); i++) {
+			Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
+			int radius = cvRound(circles[i][2]);
+			// circle center
+			circle( frame, center, 3, Scalar(0,255,0), -1, 8, 0 );
+			// circle outline
+			circle( frame, center, radius, Scalar(0,0,255), 3, 8, 0 );
+		}
+		imshow( "video", frame );
+//		imshow( "gray", frame_gray );
+
+
+		// Wait for a keypress
+		int c = cvWaitKey(100);
+		if ( c != -1 ) break;
+	}
+}
+
 int main( int argc, char** argv )
 {
-	colorTracking();
+//	colorTracking();
+	circleTracking();
 
 
   return 0;
