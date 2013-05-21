@@ -1,6 +1,7 @@
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
 #include <stdio.h>
+#include <cvblobs/BlobResult.h>
 
 using namespace cv;
 
