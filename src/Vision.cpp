@@ -1,7 +1,10 @@
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
+#include <opencv2/features2d/features2d.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
 #include <stdio.h>
-#include <cvblobs/BlobResult.h>
+//#include <cvblobs/BlobResult.h>
 
 using namespace cv;
 
@@ -28,8 +31,8 @@ void colorTracking() {
 	int posX = 0;
 	int posY = 0;
 	int hue = 20;
-	int saturation = 100;
-	int value = 100;
+//	int saturation = 100;
+//	int value = 100;
 	  cvCreateTrackbar("Hue","thresh", &hue, 245, NULL);
 	//  cvCreateTrackbar("Saturation","thresh", &saturation, 245, NULL);
 	//  cvCreateTrackbar("Value","thresh", &value, 245, NULL);
@@ -136,7 +139,7 @@ void circleTracking() {
 
 		// Apply Hough Transform to find circles
 		HoughCircles( frame_gray, circles, CV_HOUGH_GRADIENT, 1, frame_gray.rows/8, 200, 100, 0, 0 );
-		printf("There are %d circles!\n", circles.size());
+		// printf("There are %d circles!\n", circles.size());
 
 		for (size_t i = 0; i < circles.size(); i++) {
 			Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
@@ -156,10 +159,97 @@ void circleTracking() {
 	}
 }
 
+
+
+IplImage* trackColor(IplImage *image, CvPoint *position, int hue) {
+	CvScalar minHSV = cvScalar(hue, 100, 100);
+	CvScalar maxHSV = cvScalar(hue+10, 255, 255);
+
+	IplImage* imgHSV = cvCreateImage(cvGetSize(image), 8, 3);
+	cvCvtColor(image, imgHSV, CV_BGR2HSV);
+	IplImage* imgThreshed = cvCreateImage(cvGetSize(image), 8, 1);
+	cvInRangeS(imgHSV,minHSV, maxHSV, imgThreshed);
+	cvReleaseImage(&imgHSV);
+
+	// Calculate the moments to estimate the position of the ball
+	CvMoments *moments = (CvMoments*)malloc(sizeof(CvMoments));
+	cvMoments(imgThreshed, moments, 1);
+	double moment10 = cvGetSpatialMoment(moments, 1, 0);
+	double moment01 = cvGetSpatialMoment(moments, 0, 1);
+	double area = cvGetCentralMoment(moments, 0, 0);
+
+	if (area < 100) {
+		printf("Too noisy to track, detected area: %f\n", area);
+		position->x = -1;
+		position->y = -1;
+	}
+	else {
+		position->x = moment10/area;
+		position->y = moment01/area;
+	}
+	delete moments;
+	return imgThreshed;
+}
+
+void blobTracking() {
+	CvCapture* capture = cvCaptureFromCAM( CV_CAP_ANY );
+	if ( !capture ) {
+		fprintf( stderr, "ERROR: Could not initialize capturing. \n" );
+		getchar();
+	}
+	// Create a window in which the captured images will be presented
+	cvNamedWindow( "video", CV_WINDOW_AUTOSIZE );
+	cvNamedWindow( "thresh", CV_WINDOW_AUTOSIZE);
+
+
+	// Show the image captured from the camera in the window and repeat
+	while ( true ) {
+		// Get one frame
+		IplImage* frame = cvQueryFrame( capture );
+		if ( !frame ) {
+		  fprintf( stderr, "ERROR: Could not retrieve frame.\n" );
+		  getchar();
+		  break;
+		}
+
+
+		CvPoint yellowPos;
+		CvPoint bluePos;
+		CvPoint redPos;
+		IplImage* yellowThresh= trackColor(frame, &yellowPos, 25);
+		IplImage* blueThresh= trackColor(frame, &bluePos, 100);
+		IplImage* redThresh= trackColor(frame, &redPos, 164);
+
+		// Draw a line only if positions are valid
+		if (yellowPos.x > 0 && yellowPos.y > 0 && bluePos.x > 0 && bluePos.y > 0 && redPos.x && redPos.y) {
+			cvLine(frame, yellowPos, bluePos, cvScalar(0, 255, 255), 5);
+			cvLine(frame, yellowPos, redPos, cvScalar(0, 255, 255), 5);
+			cvLine(frame, redPos, bluePos, cvScalar(0, 255, 255), 5);
+		}
+
+		cvShowImage("thresh", yellowThresh);
+		cvShowImage("thresh", blueThresh);
+		cvShowImage("thresh", redThresh);
+		cvShowImage( "video", frame );
+		cvReleaseImage(&yellowThresh);
+		cvReleaseImage(&blueThresh);
+		cvReleaseImage(&redThresh);
+
+		// Wait for a keypress
+		int c = cvWaitKey(10);
+		if ( c != -1 ) break;
+	}
+	// Release the capture device housekeeping
+	cvReleaseCapture( &capture );
+	cvDestroyWindow( "mywindow" );
+}
+
+
 int main( int argc, char** argv )
 {
 //	colorTracking();
-	circleTracking();
+//	circleTracking();
+	blobTracking();
 
 
   return 0;
