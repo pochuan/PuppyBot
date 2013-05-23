@@ -4,6 +4,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <stdio.h>
+#include <math.h>
 //#include <cvblobs/BlobResult.h>
 
 using namespace cv;
@@ -191,6 +192,17 @@ IplImage* trackColor(IplImage *image, CvPoint *position, int hue) {
 	return imgThreshed;
 }
 
+double calculateBearing(CvPoint red, CvPoint blue) {
+	double a = blue.x-red.x;
+	double b = blue.y-red.y;
+	if (a == 0) {
+		return 90.0;
+	}
+	else {
+		return atan(b/a) * (180/3.14159);
+	}
+}
+
 void blobTracking() {
 	CvCapture* capture = cvCaptureFromCAM( CV_CAP_ANY );
 	if ( !capture ) {
@@ -225,6 +237,10 @@ void blobTracking() {
 			cvLine(frame, yellowPos, bluePos, cvScalar(0, 255, 255), 5);
 			cvLine(frame, yellowPos, redPos, cvScalar(0, 255, 255), 5);
 			cvLine(frame, redPos, bluePos, cvScalar(0, 255, 255), 5);
+
+			double bearing = calculateBearing(redPos, bluePos);
+			printf("Bearing: %f\n",bearing);
+
 		}
 
 		cvShowImage("thresh", yellowThresh);
