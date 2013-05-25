@@ -31,12 +31,12 @@ void colorTracking() {
 	IplImage* imgScribble = NULL;
 	int posX = 0;
 	int posY = 0;
-	int hue = 20;
-//	int saturation = 100;
-//	int value = 100;
+	int hue = 90;
+	int saturation = 150;
+	int value = 150;
 	  cvCreateTrackbar("Hue","thresh", &hue, 245, NULL);
-	//  cvCreateTrackbar("Saturation","thresh", &saturation, 245, NULL);
-	//  cvCreateTrackbar("Value","thresh", &value, 245, NULL);
+	  cvCreateTrackbar("Saturation","thresh", &saturation, 245, NULL);
+	  cvCreateTrackbar("Value","thresh", &value, 245, NULL);
 
 
 	// Show the image captured from the camera in the window and repeat
@@ -49,18 +49,19 @@ void colorTracking() {
 		  break;
 		}
 
-		if(imgScribble == NULL) {
-			imgScribble = cvCreateImage(cvGetSize(frame), 8, 3);
-		}
+//		if(imgScribble == NULL) {
+//			imgScribble = cvCreateImage(cvGetSize(frame), 8, 3);
+//		}
 
 		// Green Christmas Ornament
-		CvScalar minHSV = cvScalar(81, 100, 100);
-		CvScalar maxHSV = cvScalar(91, 255, 255);
+//		CvScalar minHSV = cvScalar(30, 150, 150);
+//		CvScalar maxHSV = cvScalar(65, 255, 255);
+//		CvScalar minHSV = cvScalar(hue, saturation, value);
+//		CvScalar maxHSV = cvScalar(hue+10, saturation+200, value+200);
+		CvScalar minHSV = cvScalar(30, saturation, value);
+		CvScalar maxHSV = cvScalar(65, 255, 255);
 
-
-//		    printf("Hue: %d Saturation: %d Value: %d \n", hue, saturation, value);
-//		    CvScalar minHSV = cvScalar(hue, saturation, value);
-//		    CvScalar maxHSV = cvScalar(hue+10, saturation+155, value+155);
+	    printf("Hue: %d Saturation: %d Value: %d \n", hue, saturation, value);
 		IplImage* imgThresh = GetThresholdedImage(frame, minHSV, maxHSV);
 
 		// Calculate the moments to estimate the position of the ball
@@ -75,18 +76,22 @@ void colorTracking() {
 		int lastY = posY;
 		posX = moment10/area;
 		posY = moment01/area;
-
+//		printf("Area: %f\n", area);
 
 		printf("Position (%d,%d)\n", posX, posY);
 
 		// Draw a line only if positions are valid
-		if (lastX > 0 && lastY > 0 && posX > 0 && posY > 0) {
-		//    	printf("Draw line from (%d, %d) to (%d,%d)\n", posX, posY, lastX, lastY);
-			cvLine(imgScribble, cvPoint(posX, posY), cvPoint(lastX, lastY), cvScalar(0, 255, 255), 5);
+		if (area > 100) {
+			if (lastX > 0 && lastY > 0 && posX > 0 && posY > 0) {
+			//    	printf("Draw line from (%d, %d) to (%d,%d)\n", posX, posY, lastX, lastY);
+//				cvLine(imgScribble, cvPoint(posX, posY), cvPoint(lastX, lastY), cvScalar(0, 255, 255), 5);
+				cvLine(frame, cvPoint(posX, posY), cvPoint(lastX, lastY), cvScalar(0, 255, 255), 5);
+			}
 		}
+		else printf("Too noisy to track\n");
 
 		// Combine the scribbling to the frame
-		cvAdd(frame, imgScribble, frame);
+//		cvAdd(frame, imgScribble, frame);
 		//    cvShowImage("scribble", imgScribble);
 
 		cvShowImage("thresh", imgThresh);
@@ -195,11 +200,21 @@ IplImage* trackColor(IplImage *image, CvPoint *position, int hue) {
 double calculateBearing(CvPoint red, CvPoint blue) {
 	double a = blue.x-red.x;
 	double b = blue.y-red.y;
-	if (a == 0) {
-		return 90.0;
+	if (blue.y > red.y) {
+		if (a == 0) {
+			return 90.0;
+		}
+		else {
+			return atan(b/a) * (180/3.14159);
+		}
 	}
 	else {
-		return atan(b/a) * (180/3.14159);
+		if (a == 0) {
+			return 270.0;
+		}
+		else {
+			return atan(b/a) * (180/3.14159) + 180;
+		}
 	}
 }
 
@@ -263,9 +278,9 @@ void blobTracking() {
 
 int main( int argc, char** argv )
 {
-//	colorTracking();
+	colorTracking();
 //	circleTracking();
-	blobTracking();
+//	blobTracking();
 
 
   return 0;
