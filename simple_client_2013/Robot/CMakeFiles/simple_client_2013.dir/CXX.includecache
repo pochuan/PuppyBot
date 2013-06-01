@@ -67,6 +67,8 @@ stdio.h
 -
 math.h
 -
+unistd.h
+-
 
 /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/Robot/unitMsg.h
 string.h

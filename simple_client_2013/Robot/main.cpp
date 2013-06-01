@@ -10,9 +10,69 @@
 #include <opencv2/highgui/highgui.hpp> 
 #include <stdio.h>
 #include <math.h>
+#include <unistd.h>
 
 using namespace cv;
 
+IplImage* GetThresholdedImage(IplImage* img, CvScalar minHSV, CvScalar maxHSV);
+bool findBallOrientation(CvCapture* capture, int* lastX, int* lastY );
+
+bool findBallOrientation(CvCapture* capture, int* lastX, int* lastY ) {
+	if ( !capture ) {
+		fprintf( stderr, "ERROR: Could not initialize capturing. \n" );
+		getchar();
+	}
+   
+	IplImage* frame = cvQueryFrame( capture );
+
+	if ( !frame ) {
+	  fprintf( stderr, "ERROR: Could not retrieve frame.\n" );
+	  getchar();
+          return false;
+	}
+
+	int hue = 90;
+	int saturation = 150;
+	int value = 150;
+	int posX = 0;
+	int posY = 0;
+	printf("Hue: %d Saturation: %d Value: %d \n", hue, saturation, value);
+
+		CvScalar minHSV = cvScalar(30, saturation, value);
+		CvScalar maxHSV = cvScalar(65, 255, 255);
+
+		IplImage* imgThresh = GetThresholdedImage(frame, minHSV, maxHSV);
+
+		// Calculate the moments to estimate the position of the ball
+
+		CvMoments *moments = (CvMoments*)malloc(sizeof(CvMoments));
+
+		cvMoments(imgThresh, moments, 1);
+
+		double moment10 = cvGetSpatialMoment(moments, 1, 0);
+		double moment01 = cvGetSpatialMoment(moments, 0, 1);
+		double area = cvGetCentralMoment(moments, 0, 0);
+
+		posX = moment10/area;
+		posY = moment01/area;
+		*lastX = posX;
+		*lastY = posY;
+	cvShowImage("thresh", imgThresh);
+	//cvShowImage( "video", frame );
+		cvReleaseImage(&imgThresh);
+		delete moments;
+
+		// Draw a line only if positions are valid
+		if (area > 100) {
+  printf("%i %i %i %i\n", *lastX, *lastY, posX, posY);
+			if (*lastX > 0 && *lastY > 0 && posX > 0 && posY > 0) {
+                          return true;
+			}
+		}
+		else return false;
+
+  return false;
+}
 
 IplImage* GetThresholdedImage(IplImage* img, CvScalar minHSV, CvScalar maxHSV) {
 	// Convert img to HSV space
@@ -116,23 +176,39 @@ void colorTracking() {
 
 int main(int argc, char** argv)
 {
-        colorTracking();
 	std::cout<<"This program tests the network connectivity between the client simulator and the servo server"<<std::endl;
 
 /****************************************/
 //TEST 1: ESTABLISH CONNECTION
 /****************************************/
 	RobotCom *test_robot = new RobotCom();
+	CvCapture* capture = cvCaptureFromCAM( CV_CAP_ANY );
+	cvNamedWindow( "video", CV_WINDOW_AUTOSIZE );
+	cvNamedWindow( "thresh", CV_WINDOW_AUTOSIZE);
 	
 	std::cout<<"Sucessfully connected!"<<std::endl;
 
 /****************************************/
 //TEST 2: SEND MESSAGE TO THE SERVO SERVER
-/****************************************/
-	
-	float helloWorld[] = {0.1, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-	test_robot->control( JTRACK, helloWorld, 8);
-	
+/***************************************
+*/
+  int posX, posY;
+  double deg = 0.1;
+  while (true){
+    bool a = findBallOrientation(capture, &posX, &posY);
+    if (a) {
+	float rotate[] = {0.0, 0.0, deg, 0.0, 0.0, 0.0, 0.0, 0.0};
+        if (test_robot != NULL) {
+          printf("send jtrack\n");
+ 	  test_robot->control( JTRACK, rotate, 8);
+          printf("send jtrack done\n");
+          sleep(2);
+          deg = deg + 0.1;
+        }
+    }	
+  }	
+	cvReleaseCapture( &capture );
+	cvDestroyWindow( "mywindow" );
 
 /****************************************/
 //TEST 3: RECEIVE REPLIES FROM THE SERVO SERVER
