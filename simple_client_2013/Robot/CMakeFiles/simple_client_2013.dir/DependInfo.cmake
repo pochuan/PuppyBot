@@ -4,11 +4,11 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/Robot/RobotCom.cpp" "/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/Robot/CMakeFiles/simple_client_2013.dir/RobotCom.cpp.o"
-  "/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/Robot/main.cpp" "/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/Robot/CMakeFiles/simple_client_2013.dir/main.cpp.o"
-  "/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/Robot/unitMsg.cpp" "/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/Robot/CMakeFiles/simple_client_2013.dir/unitMsg.cpp.o"
+  "/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/Robot/RobotCom.cpp" "/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/Robot/CMakeFiles/simple_client_2013.dir/RobotCom.cpp.o"
+  "/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/Robot/main.cpp" "/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/Robot/CMakeFiles/simple_client_2013.dir/main.cpp.o"
+  "/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/Robot/unitMsg.cpp" "/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/Robot/CMakeFiles/simple_client_2013.dir/unitMsg.cpp.o"
   )
-SET(CMAKE_CXX_COMPILER_ID "Clang")
+SET(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 SET(CMAKE_TARGET_DEFINITIONS
@@ -23,6 +23,9 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
   "../include"
+  "/opt/local/include"
+  "/opt/local/include/opencv"
+  "/opt/local/include/opencv2"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

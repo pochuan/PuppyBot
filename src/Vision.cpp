@@ -278,8 +278,8 @@ void blobTracking() {
 
 int main( int argc, char** argv )
 {
-	colorTracking();
-//	circleTracking();
+//	colorTracking();
+	circleTracking();
 //	blobTracking();
 
 

@@ -45,10 +45,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /opt/local/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/Robot
+CMAKE_SOURCE_DIR = /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/Robot
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/Robot
+CMAKE_BINARY_DIR = /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/Robot
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -75,9 +75,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/Robot/CMakeFiles /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/Robot/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/Robot/CMakeFiles /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/Robot/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/Robot/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/Robot/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

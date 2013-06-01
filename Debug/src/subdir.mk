@@ -4,13 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/Vision.cpp 
+../src/Vision.cpp \
+../src/blob_track.cpp 
 
 OBJS += \
-./src/Vision.o 
+./src/Vision.o \
+./src/blob_track.o 
 
 CPP_DEPS += \
-./src/Vision.d 
+./src/Vision.d \
+./src/blob_track.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

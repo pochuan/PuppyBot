@@ -6,151 +6,151 @@
 
 #IncludeRegexTransform: 
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrGlobalDefn.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrGlobalDefn.h
 stdio.h
 -
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMathDefn.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMathDefn.h
 cmath
 -
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMatrix.cpp
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMatrix.cpp
 PrMatrix.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMatrix.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMatrix.h
 float.h
 -
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMatrix.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMatrix.h
 string.h
 -
 XUtils.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/XUtils.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/XUtils.h
 PrGlobalDefn.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrGlobalDefn.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrGlobalDefn.h
 PrMathDefn.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMathDefn.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMathDefn.h
 PrVector.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector.h
 extensions/newmatap.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/extensions/newmatap.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/extensions/newmatap.h
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMatrix3.cpp
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMatrix3.cpp
 PrMatrix3.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMatrix3.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMatrix3.h
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMatrix3.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMatrix3.h
 PrVector3.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector3.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector3.h
 PrMatrix.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMatrix.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMatrix.h
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMatrix6.cpp
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMatrix6.cpp
 PrMatrix6.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMatrix6.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMatrix6.h
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMatrix6.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMatrix6.h
 PrVector6.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector6.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector6.h
 PrMatrix3.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMatrix3.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMatrix3.h
 PrMatrix.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMatrix.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMatrix.h
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrQuaternion.cpp
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrQuaternion.cpp
 PrQuaternion.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrQuaternion.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrQuaternion.h
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrQuaternion.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrQuaternion.h
 PrGlobalDefn.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrGlobalDefn.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrGlobalDefn.h
 PrVector3.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector3.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector3.h
 PrMatrix3.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMatrix3.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMatrix3.h
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrTransform.cpp
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrTransform.cpp
 PrTransform.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrTransform.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrTransform.h
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrTransform.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrTransform.h
 PrGlobalDefn.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrGlobalDefn.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrGlobalDefn.h
 PrVector3.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector3.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector3.h
 PrQuaternion.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrQuaternion.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrQuaternion.h
 PrVector6.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector6.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector6.h
 PrMatrix6.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMatrix6.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMatrix6.h
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector.cpp
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector.cpp
 XPrintf.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/XPrintf.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/XPrintf.h
 stdio.h
 -
 PrVector.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector.h
 PrMatrix.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMatrix.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMatrix.h
 PrVector3.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector3.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector3.h
 PrMatrix3.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMatrix3.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMatrix3.h
 float.h
 -
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector.h
 cstring
 -
 XUtils.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/XUtils.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/XUtils.h
 PrGlobalDefn.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrGlobalDefn.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrGlobalDefn.h
 PrMathDefn.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMathDefn.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMathDefn.h
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector3.cpp
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector3.cpp
 PrVector3.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector3.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector3.h
 PrMatrix3.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMatrix3.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMatrix3.h
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector3.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector3.h
 PrVector.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector.h
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector6.cpp
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector6.cpp
 PrVector3.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector3.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector3.h
 PrMatrix6.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrMatrix6.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrMatrix6.h
 PrVector6.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector6.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector6.h
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector6.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector6.h
 PrVector.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/PrVector.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/PrVector.h
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/XPrintf.cpp
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/XPrintf.cpp
 XPrintf.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/XPrintf.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/XPrintf.h
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/XPrintf.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/XPrintf.h
 cstdarg
 -
 cstdio
 -
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/XUtils.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/XUtils.h
 XPrintf.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/XPrintf.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/XPrintf.h
 cassert
 -
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/extensions/boolean.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/extensions/boolean.h
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/extensions/include.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/extensions/include.h
 cstdlib
 -
 limits
@@ -296,19 +296,19 @@ time.h
 fstream
 -
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/extensions/myexcept.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/extensions/myexcept.h
 setjmp.h
 -
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/extensions/newmat.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/extensions/newmat.h
 include.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/extensions/include.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/extensions/include.h
 boolean.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/extensions/boolean.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/extensions/boolean.h
 myexcept.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/extensions/myexcept.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/extensions/myexcept.h
 
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/extensions/newmatap.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/extensions/newmatap.h
 newmat.h
-/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/extensions/newmat.h
+/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/extensions/newmat.h
 

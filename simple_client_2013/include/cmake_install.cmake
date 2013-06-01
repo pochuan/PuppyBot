@@ -1,4 +1,4 @@
-# Install script for directory: /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include
+# Install script for directory: /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -33,7 +33,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

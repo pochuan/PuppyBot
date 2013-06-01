@@ -1,6 +1,6 @@
-The system is: Darwin - 11.4.2 - i386
+The system is: Darwin - 12.3.0 - i386
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-Compiler: /usr/bin/cc 
+Compiler: /opt/local/bin/cc 
 Build flags: 
 Id flags: 
 
@@ -10,10 +10,10 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is Clang, found in "/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/CMakeFiles/2.8.10.2/CompilerIdC/a.out"
+The C compiler identification is Clang, found in "/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/2.8.10/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-Compiler: /usr/bin/c++ 
+Compiler: /opt/local/bin/c++ 
 Build flags: 
 Id flags: 
 
@@ -23,140 +23,184 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is Clang, found in "/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/CMakeFiles/2.8.10.2/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/2.8.10/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/CMakeFiles/CMakeTmp
+Change Dir: /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec794297214/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec794297214.dir/build.make CMakeFiles/cmTryCompileExec794297214.dir/build
-/opt/local/bin/cmake -E cmake_progress_report /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec794297214.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec794297214.dir/testCCompiler.c.o   -c /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTryCompileExec794297214
-/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec794297214.dir/link.txt --verbose=1
-/usr/bin/cc      -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec794297214.dir/testCCompiler.c.o  -o cmTryCompileExec794297214  
+Run Build Command:/opt/local/bin/gmake "cmTryCompileExec3673009860/fast"
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec3673009860.dir/build.make CMakeFiles/cmTryCompileExec3673009860.dir/build
+gmake[1]: Entering directory `/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp'
+/opt/local/bin/cmake -E cmake_progress_report /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3673009860.dir/testCCompiler.c.o
+/opt/local/bin/cc    -o CMakeFiles/cmTryCompileExec3673009860.dir/testCCompiler.c.o   -c /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec3673009860
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3673009860.dir/link.txt --verbose=1
+/opt/local/bin/cc      -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec3673009860.dir/testCCompiler.c.o  -o cmTryCompileExec3673009860  
+gmake[1]: Leaving directory `/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/CMakeFiles/CMakeTmp
+Change Dir: /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec3803645600/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec3803645600.dir/build.make CMakeFiles/cmTryCompileExec3803645600.dir/build
-/opt/local/bin/cmake -E cmake_progress_report /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec3803645600.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3803645600.dir/CMakeCCompilerABI.c.o   -c /opt/local/share/cmake-2.8/Modules/CMakeCCompilerABI.c
-Linking C executable cmTryCompileExec3803645600
-/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3803645600.dir/link.txt --verbose=1
-/usr/bin/cc      -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v CMakeFiles/cmTryCompileExec3803645600.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec3803645600   
+Run Build Command:/opt/local/bin/gmake "cmTryCompileExec1700940869/fast"
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec1700940869.dir/build.make CMakeFiles/cmTryCompileExec1700940869.dir/build
+gmake[1]: Entering directory `/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp'
+/opt/local/bin/cmake -E cmake_progress_report /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1700940869.dir/CMakeCCompilerABI.c.o
+/opt/local/bin/cc    -o CMakeFiles/cmTryCompileExec1700940869.dir/CMakeCCompilerABI.c.o   -c /opt/local/share/cmake-2.8/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec1700940869
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1700940869.dir/link.txt --verbose=1
+/opt/local/bin/cc      -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v CMakeFiles/cmTryCompileExec1700940869.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec1700940869   
 Apple LLVM version 4.2 (clang-425.0.28) (based on LLVM 3.2svn)
-Target: x86_64-apple-darwin11.4.2
+Target: x86_64-apple-darwin12.3.0
 Thread model: posix
- "/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.7.0 -o cmTryCompileExec3803645600 -lcrt1.10.6.o -search_paths_first -headerpad_max_install_names CMakeFiles/cmTryCompileExec3803645600.dir/CMakeCCompilerABI.c.o -lSystem /usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a
+ "/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.8.0 -o cmTryCompileExec1700940869 -search_paths_first -headerpad_max_install_names CMakeFiles/cmTryCompileExec1700940869.dir/CMakeCCompilerABI.c.o -lSystem /usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a
+gmake[1]: Leaving directory `/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp'
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec3803645600/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec3803645600.dir/build.make CMakeFiles/cmTryCompileExec3803645600.dir/build]
-  ignore line: [/opt/local/bin/cmake -E cmake_progress_report /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/CMakeFiles/CMakeTmp/CMakeFiles 1]
-  ignore line: [Building C object CMakeFiles/cmTryCompileExec3803645600.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3803645600.dir/CMakeCCompilerABI.c.o   -c /opt/local/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTryCompileExec3803645600]
-  ignore line: [/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3803645600.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc      -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v CMakeFiles/cmTryCompileExec3803645600.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec3803645600   ]
+  ignore line: [Run Build Command:/opt/local/bin/gmake "cmTryCompileExec1700940869/fast"]
+  ignore line: [/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec1700940869.dir/build.make CMakeFiles/cmTryCompileExec1700940869.dir/build]
+  ignore line: [gmake[1]: Entering directory `/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp']
+  ignore line: [/opt/local/bin/cmake -E cmake_progress_report /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec1700940869.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/opt/local/bin/cc    -o CMakeFiles/cmTryCompileExec1700940869.dir/CMakeCCompilerABI.c.o   -c /opt/local/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec1700940869]
+  ignore line: [/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1700940869.dir/link.txt --verbose=1]
+  ignore line: [/opt/local/bin/cc      -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v CMakeFiles/cmTryCompileExec1700940869.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec1700940869   ]
   ignore line: [Apple LLVM version 4.2 (clang-425.0.28) (based on LLVM 3.2svn)]
-  ignore line: [Target: x86_64-apple-darwin11.4.2]
+  ignore line: [Target: x86_64-apple-darwin12.3.0]
   ignore line: [Thread model: posix]
-  link line: [ "/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.7.0 -o cmTryCompileExec3803645600 -lcrt1.10.6.o -search_paths_first -headerpad_max_install_names CMakeFiles/cmTryCompileExec3803645600.dir/CMakeCCompilerABI.c.o -lSystem /usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a]
+  link line: [ "/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.8.0 -o cmTryCompileExec1700940869 -search_paths_first -headerpad_max_install_names CMakeFiles/cmTryCompileExec1700940869.dir/CMakeCCompilerABI.c.o -lSystem /usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a]
     arg [/usr/bin/ld] ==> ignore
     arg [-demangle] ==> ignore
     arg [-dynamic] ==> ignore
     arg [-arch] ==> ignore
     arg [x86_64] ==> ignore
     arg [-macosx_version_min] ==> ignore
-    arg [10.7.0] ==> ignore
+    arg [10.8.0] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTryCompileExec3803645600] ==> ignore
-    arg [-lcrt1.10.6.o] ==> lib [crt1.10.6.o]
+    arg [cmTryCompileExec1700940869] ==> ignore
     arg [-search_paths_first] ==> ignore
     arg [-headerpad_max_install_names] ==> ignore
-    arg [CMakeFiles/cmTryCompileExec3803645600.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec1700940869.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lSystem] ==> lib [System]
     arg [/usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a] ==> lib [/usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a]
-  remove lib [crt1.10.6.o]
   remove lib [System]
   implicit libs: [/usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a]
   implicit dirs: []
 
 
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/CMakeFiles/CMakeTmp
+Change Dir: /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec3926852293/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec3926852293.dir/build.make CMakeFiles/cmTryCompileExec3926852293.dir/build
-/opt/local/bin/cmake -E cmake_progress_report /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building CXX object CMakeFiles/cmTryCompileExec3926852293.dir/testCXXCompiler.cxx.o
-/usr/bin/c++     -o CMakeFiles/cmTryCompileExec3926852293.dir/testCXXCompiler.cxx.o -c /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTryCompileExec3926852293
-/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3926852293.dir/link.txt --verbose=1
-/usr/bin/c++       -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec3926852293.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec3926852293  
+Run Build Command:/opt/local/bin/gmake "cmTryCompileExec43770431/fast"
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec43770431.dir/build.make CMakeFiles/cmTryCompileExec43770431.dir/build
+gmake[1]: Entering directory `/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp'
+/opt/local/bin/cmake -E cmake_progress_report /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec43770431.dir/testCXXCompiler.cxx.o
+/opt/local/bin/c++     -o CMakeFiles/cmTryCompileExec43770431.dir/testCXXCompiler.cxx.o -c /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec43770431
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec43770431.dir/link.txt --verbose=1
+/opt/local/bin/c++       -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec43770431.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec43770431  
+gmake[1]: Leaving directory `/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/CMakeFiles/CMakeTmp
+Change Dir: /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec1592481584/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1592481584.dir/build.make CMakeFiles/cmTryCompileExec1592481584.dir/build
-/opt/local/bin/cmake -E cmake_progress_report /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building CXX object CMakeFiles/cmTryCompileExec1592481584.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++     -o CMakeFiles/cmTryCompileExec1592481584.dir/CMakeCXXCompilerABI.cpp.o -c /opt/local/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTryCompileExec1592481584
-/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1592481584.dir/link.txt --verbose=1
-/usr/bin/c++       -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v CMakeFiles/cmTryCompileExec1592481584.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec1592481584   
-Apple LLVM version 4.2 (clang-425.0.28) (based on LLVM 3.2svn)
-Target: x86_64-apple-darwin11.4.2
+Run Build Command:/opt/local/bin/gmake "cmTryCompileExec1613140340/fast"
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec1613140340.dir/build.make CMakeFiles/cmTryCompileExec1613140340.dir/build
+gmake[1]: Entering directory `/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp'
+/opt/local/bin/cmake -E cmake_progress_report /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1613140340.dir/CMakeCXXCompilerABI.cpp.o
+/opt/local/bin/c++     -o CMakeFiles/cmTryCompileExec1613140340.dir/CMakeCXXCompilerABI.cpp.o -c /opt/local/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTryCompileExec1613140340
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1613140340.dir/link.txt --verbose=1
+/opt/local/bin/c++       -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v CMakeFiles/cmTryCompileExec1613140340.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec1613140340   
+Using built-in specs.
+COLLECT_GCC=/opt/local/bin/c++
+COLLECT_LTO_WRAPPER=/opt/local/libexec/gcc/x86_64-apple-darwin12/4.7.3/lto-wrapper
+Target: x86_64-apple-darwin12
+Configured with: ../gcc-4.7.3/configure --prefix=/opt/local --build=x86_64-apple-darwin12 --enable-languages=c,c++,objc,obj-c++,lto,fortran,java --libdir=/opt/local/lib/gcc47 --includedir=/opt/local/include/gcc47 --infodir=/opt/local/share/info --mandir=/opt/local/share/man --datarootdir=/opt/local/share/gcc-4.7 --with-libiconv-prefix=/opt/local --with-local-prefix=/opt/local --with-system-zlib --disable-nls --program-suffix=-mp-4.7 --with-gxx-include-dir=/opt/local/include/gcc47/c++/ --with-gmp=/opt/local --with-mpfr=/opt/local --with-mpc=/opt/local --with-ppl=/opt/local --with-cloog=/opt/local --enable-cloog-backend=isl --disable-cloog-version-check --enable-stage1-checking --enable-lto --enable-libstdcxx-time --with-as=/opt/local/bin/as --with-ld=/opt/local/bin/ld --with-ar=/opt/local/bin/ar --with-bugurl=https://trac.macports.org/newticket --disable-ppl-version-check --with-pkgversion='MacPorts gcc47 4.7.3_0+universal'
 Thread model: posix
- "/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.7.0 -o cmTryCompileExec1592481584 -lcrt1.10.6.o -search_paths_first -headerpad_max_install_names CMakeFiles/cmTryCompileExec1592481584.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lSystem /usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a
+gcc version 4.7.3 (MacPorts gcc47 4.7.3_0+universal) 
+COMPILER_PATH=/opt/local/libexec/gcc/x86_64-apple-darwin12/4.7.3/:/opt/local/libexec/gcc/x86_64-apple-darwin12/4.7.3/:/opt/local/libexec/gcc/x86_64-apple-darwin12/:/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3/:/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/
+LIBRARY_PATH=/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3/:/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3/../../../:/usr/lib/
+COLLECT_GCC_OPTIONS='-mmacosx-version-min=10.8.3' '-v' '-o' 'cmTryCompileExec1613140340' '-shared-libgcc' '-mtune=core2'
+ /opt/local/libexec/gcc/x86_64-apple-darwin12/4.7.3/collect2 -dynamic -arch x86_64 -macosx_version_min 10.8.3 -weak_reference_mismatches non-weak -o cmTryCompileExec1613140340 -L/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3 -L/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3/../../.. -search_paths_first -headerpad_max_install_names CMakeFiles/cmTryCompileExec1613140340.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -no_compact_unwind -lSystem -lgcc_ext.10.5 -lgcc -lSystem -v
+collect2 version 4.7.3
+/opt/local/bin/ld -dynamic -arch x86_64 -macosx_version_min 10.8.3 -weak_reference_mismatches non-weak -o cmTryCompileExec1613140340 -L/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3 -L/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3/../../.. -search_paths_first -headerpad_max_install_names CMakeFiles/cmTryCompileExec1613140340.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -no_compact_unwind -lSystem -lgcc_ext.10.5 -lgcc -lSystem -v
+@(#)PROGRAM:ld  PROJECT:ld64-134.9
+configured to support archs: i386 x86_64
+Library search paths:
+	/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3
+	/opt/local/lib/gcc47
+	/usr/lib
+	/usr/local/lib
+Framework search paths:
+	/Library/Frameworks/
+	/System/Library/Frameworks/
+gmake[1]: Leaving directory `/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp'
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec1592481584/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec1592481584.dir/build.make CMakeFiles/cmTryCompileExec1592481584.dir/build]
-  ignore line: [/opt/local/bin/cmake -E cmake_progress_report /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/Vision/PuppyBot/simple_client_2013/include/CMakeFiles/CMakeTmp/CMakeFiles 1]
-  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec1592481584.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTryCompileExec1592481584.dir/CMakeCXXCompilerABI.cpp.o -c /opt/local/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTryCompileExec1592481584]
-  ignore line: [/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1592481584.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++       -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v CMakeFiles/cmTryCompileExec1592481584.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec1592481584   ]
-  ignore line: [Apple LLVM version 4.2 (clang-425.0.28) (based on LLVM 3.2svn)]
-  ignore line: [Target: x86_64-apple-darwin11.4.2]
+  ignore line: [Run Build Command:/opt/local/bin/gmake "cmTryCompileExec1613140340/fast"]
+  ignore line: [/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec1613140340.dir/build.make CMakeFiles/cmTryCompileExec1613140340.dir/build]
+  ignore line: [gmake[1]: Entering directory `/Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp']
+  ignore line: [/opt/local/bin/cmake -E cmake_progress_report /Users/jjong/code/class/cs225a/puppybot/simple_client_2013/include/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec1613140340.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/opt/local/bin/c++     -o CMakeFiles/cmTryCompileExec1613140340.dir/CMakeCXXCompilerABI.cpp.o -c /opt/local/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTryCompileExec1613140340]
+  ignore line: [/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1613140340.dir/link.txt --verbose=1]
+  ignore line: [/opt/local/bin/c++       -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v CMakeFiles/cmTryCompileExec1613140340.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec1613140340   ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/opt/local/bin/c++]
+  ignore line: [COLLECT_LTO_WRAPPER=/opt/local/libexec/gcc/x86_64-apple-darwin12/4.7.3/lto-wrapper]
+  ignore line: [Target: x86_64-apple-darwin12]
+  ignore line: [Configured with: ../gcc-4.7.3/configure --prefix=/opt/local --build=x86_64-apple-darwin12 --enable-languages=c,c++,objc,obj-c++,lto,fortran,java --libdir=/opt/local/lib/gcc47 --includedir=/opt/local/include/gcc47 --infodir=/opt/local/share/info --mandir=/opt/local/share/man --datarootdir=/opt/local/share/gcc-4.7 --with-libiconv-prefix=/opt/local --with-local-prefix=/opt/local --with-system-zlib --disable-nls --program-suffix=-mp-4.7 --with-gxx-include-dir=/opt/local/include/gcc47/c++/ --with-gmp=/opt/local --with-mpfr=/opt/local --with-mpc=/opt/local --with-ppl=/opt/local --with-cloog=/opt/local --enable-cloog-backend=isl --disable-cloog-version-check --enable-stage1-checking --enable-lto --enable-libstdcxx-time --with-as=/opt/local/bin/as --with-ld=/opt/local/bin/ld --with-ar=/opt/local/bin/ar --with-bugurl=https://trac.macports.org/newticket --disable-ppl-version-check --with-pkgversion='MacPorts gcc47 4.7.3_0+universal']
   ignore line: [Thread model: posix]
-  link line: [ "/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.7.0 -o cmTryCompileExec1592481584 -lcrt1.10.6.o -search_paths_first -headerpad_max_install_names CMakeFiles/cmTryCompileExec1592481584.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lSystem /usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a]
-    arg [/usr/bin/ld] ==> ignore
-    arg [-demangle] ==> ignore
+  ignore line: [gcc version 4.7.3 (MacPorts gcc47 4.7.3_0+universal) ]
+  ignore line: [COMPILER_PATH=/opt/local/libexec/gcc/x86_64-apple-darwin12/4.7.3/:/opt/local/libexec/gcc/x86_64-apple-darwin12/4.7.3/:/opt/local/libexec/gcc/x86_64-apple-darwin12/:/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3/:/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/]
+  ignore line: [LIBRARY_PATH=/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3/:/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3/../../../:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-mmacosx-version-min=10.8.3' '-v' '-o' 'cmTryCompileExec1613140340' '-shared-libgcc' '-mtune=core2']
+  link line: [ /opt/local/libexec/gcc/x86_64-apple-darwin12/4.7.3/collect2 -dynamic -arch x86_64 -macosx_version_min 10.8.3 -weak_reference_mismatches non-weak -o cmTryCompileExec1613140340 -L/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3 -L/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3/../../.. -search_paths_first -headerpad_max_install_names CMakeFiles/cmTryCompileExec1613140340.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -no_compact_unwind -lSystem -lgcc_ext.10.5 -lgcc -lSystem -v]
+    arg [/opt/local/libexec/gcc/x86_64-apple-darwin12/4.7.3/collect2] ==> ignore
     arg [-dynamic] ==> ignore
     arg [-arch] ==> ignore
     arg [x86_64] ==> ignore
     arg [-macosx_version_min] ==> ignore
-    arg [10.7.0] ==> ignore
+    arg [10.8.3] ==> ignore
+    arg [-weak_reference_mismatches] ==> ignore
+    arg [non-weak] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTryCompileExec1592481584] ==> ignore
-    arg [-lcrt1.10.6.o] ==> lib [crt1.10.6.o]
+    arg [cmTryCompileExec1613140340] ==> ignore
+    arg [-L/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3] ==> dir [/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3]
+    arg [-L/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3/../../..] ==> dir [/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3/../../..]
     arg [-search_paths_first] ==> ignore
     arg [-headerpad_max_install_names] ==> ignore
-    arg [CMakeFiles/cmTryCompileExec1592481584.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec1613140340.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
+    arg [-no_compact_unwind] ==> ignore
     arg [-lSystem] ==> lib [System]
-    arg [/usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a] ==> lib [/usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a]
-  remove lib [crt1.10.6.o]
+    arg [-lgcc_ext.10.5] ==> lib [gcc_ext.10.5]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lSystem] ==> lib [System]
+    arg [-v] ==> ignore
   remove lib [System]
-  implicit libs: [stdc++;/usr/bin/../lib/clang/4.2/lib/darwin/libclang_rt.osx.a]
-  implicit dirs: []
+  remove lib [gcc_ext.10.5]
+  remove lib [gcc]
+  remove lib [System]
+  collapse dir [/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3] ==> [/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3]
+  collapse dir [/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3/../../..] ==> [/opt/local/lib/gcc47]
+  implicit libs: [stdc++]
+  implicit dirs: [/opt/local/lib/gcc47/gcc/x86_64-apple-darwin12/4.7.3;/opt/local/lib/gcc47]
 
 

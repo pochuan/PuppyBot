@@ -16,7 +16,7 @@ SET(CMAKE_VERBOSE_MAKEFILE ON)
 #Set the include directories
 SET(PR_INC_DIR ../include/)
 
-INCLUDE_DIRECTORIES(${PR_INC_DIR})
+INCLUDE_DIRECTORIES(${PR_INC_DIR} /opt/local/include /opt/local/include/opencv /opt/local/include/opencv2)
 ADD_DEFINITIONS(-DPR_MISSING_NEWMAT10_LIB)
 
 #Set the compilation flags
@@ -46,6 +46,5 @@ SET( PR_LIBRARY debug     ${PR_LIBRARY_DEBUG}
               optimized ${PR_LIBRARY_RELEASE} )
 
 
-target_link_libraries(simple_client_2013 ${PR_LIBRARY})
-
+target_link_libraries(simple_client_2013 ${PR_LIBRARY} -L/opt/local/lib -L/usr/local/lib -lopencv_core -lopencv_features2d -lopencv_highgui -lopencv_imgproc)
 
