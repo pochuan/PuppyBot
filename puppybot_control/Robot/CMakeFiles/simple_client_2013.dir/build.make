@@ -41,10 +41,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /opt/local/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot
+CMAKE_SOURCE_DIR = /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot
+CMAKE_BINARY_DIR = /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot
 
 # Include any dependencies generated for this target.
 include CMakeFiles/simple_client_2013.dir/depend.make
@@ -57,17 +57,17 @@ include CMakeFiles/simple_client_2013.dir/flags.make
 
 CMakeFiles/simple_client_2013.dir/RobotCom.cpp.o: CMakeFiles/simple_client_2013.dir/flags.make
 CMakeFiles/simple_client_2013.dir/RobotCom.cpp.o: RobotCom.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/simple_client_2013.dir/RobotCom.cpp.o"
-	/opt/local/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/simple_client_2013.dir/RobotCom.cpp.o -c /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot/RobotCom.cpp
+	/opt/local/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/simple_client_2013.dir/RobotCom.cpp.o -c /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot/RobotCom.cpp
 
 CMakeFiles/simple_client_2013.dir/RobotCom.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simple_client_2013.dir/RobotCom.cpp.i"
-	/opt/local/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot/RobotCom.cpp > CMakeFiles/simple_client_2013.dir/RobotCom.cpp.i
+	/opt/local/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot/RobotCom.cpp > CMakeFiles/simple_client_2013.dir/RobotCom.cpp.i
 
 CMakeFiles/simple_client_2013.dir/RobotCom.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simple_client_2013.dir/RobotCom.cpp.s"
-	/opt/local/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot/RobotCom.cpp -o CMakeFiles/simple_client_2013.dir/RobotCom.cpp.s
+	/opt/local/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot/RobotCom.cpp -o CMakeFiles/simple_client_2013.dir/RobotCom.cpp.s
 
 CMakeFiles/simple_client_2013.dir/RobotCom.cpp.o.requires:
 .PHONY : CMakeFiles/simple_client_2013.dir/RobotCom.cpp.o.requires
@@ -80,17 +80,17 @@ CMakeFiles/simple_client_2013.dir/RobotCom.cpp.o.provides.build: CMakeFiles/simp
 
 CMakeFiles/simple_client_2013.dir/unitMsg.cpp.o: CMakeFiles/simple_client_2013.dir/flags.make
 CMakeFiles/simple_client_2013.dir/unitMsg.cpp.o: unitMsg.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/simple_client_2013.dir/unitMsg.cpp.o"
-	/opt/local/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/simple_client_2013.dir/unitMsg.cpp.o -c /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot/unitMsg.cpp
+	/opt/local/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/simple_client_2013.dir/unitMsg.cpp.o -c /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot/unitMsg.cpp
 
 CMakeFiles/simple_client_2013.dir/unitMsg.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simple_client_2013.dir/unitMsg.cpp.i"
-	/opt/local/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot/unitMsg.cpp > CMakeFiles/simple_client_2013.dir/unitMsg.cpp.i
+	/opt/local/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot/unitMsg.cpp > CMakeFiles/simple_client_2013.dir/unitMsg.cpp.i
 
 CMakeFiles/simple_client_2013.dir/unitMsg.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simple_client_2013.dir/unitMsg.cpp.s"
-	/opt/local/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot/unitMsg.cpp -o CMakeFiles/simple_client_2013.dir/unitMsg.cpp.s
+	/opt/local/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot/unitMsg.cpp -o CMakeFiles/simple_client_2013.dir/unitMsg.cpp.s
 
 CMakeFiles/simple_client_2013.dir/unitMsg.cpp.o.requires:
 .PHONY : CMakeFiles/simple_client_2013.dir/unitMsg.cpp.o.requires
@@ -103,17 +103,17 @@ CMakeFiles/simple_client_2013.dir/unitMsg.cpp.o.provides.build: CMakeFiles/simpl
 
 CMakeFiles/simple_client_2013.dir/main.cpp.o: CMakeFiles/simple_client_2013.dir/flags.make
 CMakeFiles/simple_client_2013.dir/main.cpp.o: main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/simple_client_2013.dir/main.cpp.o"
-	/opt/local/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/simple_client_2013.dir/main.cpp.o -c /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot/main.cpp
+	/opt/local/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/simple_client_2013.dir/main.cpp.o -c /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot/main.cpp
 
 CMakeFiles/simple_client_2013.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simple_client_2013.dir/main.cpp.i"
-	/opt/local/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot/main.cpp > CMakeFiles/simple_client_2013.dir/main.cpp.i
+	/opt/local/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot/main.cpp > CMakeFiles/simple_client_2013.dir/main.cpp.i
 
 CMakeFiles/simple_client_2013.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simple_client_2013.dir/main.cpp.s"
-	/opt/local/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot/main.cpp -o CMakeFiles/simple_client_2013.dir/main.cpp.s
+	/opt/local/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot/main.cpp -o CMakeFiles/simple_client_2013.dir/main.cpp.s
 
 CMakeFiles/simple_client_2013.dir/main.cpp.o.requires:
 .PHONY : CMakeFiles/simple_client_2013.dir/main.cpp.o.requires
@@ -137,7 +137,7 @@ simple_client_2013: CMakeFiles/simple_client_2013.dir/RobotCom.cpp.o
 simple_client_2013: CMakeFiles/simple_client_2013.dir/unitMsg.cpp.o
 simple_client_2013: CMakeFiles/simple_client_2013.dir/main.cpp.o
 simple_client_2013: CMakeFiles/simple_client_2013.dir/build.make
-simple_client_2013: /Users/jjong/code/class/cs225a/final_project/puppybot_control/lib/Release/libmatrix.a
+simple_client_2013: /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/lib/Release/libmatrix.a
 simple_client_2013: CMakeFiles/simple_client_2013.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable simple_client_2013"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/simple_client_2013.dir/link.txt --verbose=$(VERBOSE)
@@ -156,6 +156,6 @@ CMakeFiles/simple_client_2013.dir/clean:
 .PHONY : CMakeFiles/simple_client_2013.dir/clean
 
 CMakeFiles/simple_client_2013.dir/depend:
-	cd /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot/CMakeFiles/simple_client_2013.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot/CMakeFiles/simple_client_2013.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/simple_client_2013.dir/depend
 

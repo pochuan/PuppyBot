@@ -1,4 +1,4 @@
-# Install script for directory: /Users/jjong/code/class/cs225a/final_project/puppybot_control/include
+# Install script for directory: /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/include
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -33,7 +33,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/Users/jjong/code/class/cs225a/final_project/puppybot_control/include/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/Users/paulchen/Documents/workspace/puppyBot/puppybot_control/include/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/Users/jjong/code/class/cs225a/final_project/puppybot_control/include/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/Users/paulchen/Documents/workspace/puppyBot/puppybot_control/include/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

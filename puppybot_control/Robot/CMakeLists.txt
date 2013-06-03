@@ -2,6 +2,8 @@
 
 cmake_minimum_required(VERSION 2.6)
 
+set(CMAKE_CXX_COMPILER "/opt/local/bin/c++")
+
 #Name the project
 project(simple_client_2013)
 

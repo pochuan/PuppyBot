@@ -8,8 +8,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/matrix.dir/PrVector3.cpp.o"
   "CMakeFiles/matrix.dir/PrVector6.cpp.o"
   "CMakeFiles/matrix.dir/XPrintf.cpp.o"
-  "libmatrix.pdb"
-  "/Users/jjong/code/class/cs225a/final_project/puppybot_control/lib/Debug/libmatrix.a"
+  "/Users/paulchen/Documents/workspace/puppyBot/puppybot_control/lib/Debug/libmatrix.pdb"
+  "/Users/paulchen/Documents/workspace/puppyBot/puppybot_control/lib/Debug/libmatrix.a"
 )
 
 # Per-language clean rules from dependency scanning.
