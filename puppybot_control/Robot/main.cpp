@@ -14,7 +14,7 @@
 
 using namespace cv;
 
-int Hue = 30;
+int Hue = 40;
 int Sat = 150;
 int Val = 150;
 float RobotPos[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
@@ -23,6 +23,7 @@ void RotateRobot(RobotCom* Robot, double DegCCRot);
 IplImage* GetThresholdedImage(IplImage* img, CvScalar minHSV, CvScalar maxHSV);
 bool findBallPos(CvCapture* capture, int* lastX, int* lastY );
 void CenterRobotOnBall(RobotCom* robot, CvCapture* capture);
+bool ballInWorkspace(CvCapture* capture);
 
 bool findBallPos(CvCapture* capture, int& posX, int& posY) {
   IplImage* frame = cvQueryFrame( capture );
@@ -36,7 +37,7 @@ bool findBallPos(CvCapture* capture, int& posX, int& posY) {
   // printf("Hue: %d Saturation: %d Value: %d \n", Hue, Sat, Val);
 
   CvScalar minHSV = cvScalar(Hue, Sat, Val);
-  CvScalar maxHSV = cvScalar(65, 255, 255);
+  CvScalar maxHSV = cvScalar(Hue+20, 255, 255);
 
   IplImage* imgThresh = GetThresholdedImage(frame, minHSV, maxHSV);
 
@@ -75,9 +76,10 @@ IplImage* GetThresholdedImage(IplImage* img, CvScalar minHSV, CvScalar maxHSV) {
 
 void RotateRobot(RobotCom* robot, double degCCRot) {
   double radians = degCCRot*3.14159 / 180.0;
-  printf("Rotate robot by %f\n", radians);
+  printf("Rotate robot to %f\n", radians + RobotPos[2]);
+  RobotPos[2] += radians;
   robot->control(JTRACK, RobotPos, 8);
-  sleep(1);
+  sleep(2);
 }
 
 void CenterRobotOnBall(RobotCom* robot, CvCapture* capture) {
@@ -87,11 +89,12 @@ void CenterRobotOnBall(RobotCom* robot, CvCapture* capture) {
   while (true){
     if (findBallPos(capture, posX, posY)){
       if (posX < (width/3.0)) {
-        RotateRobot(robot, 2.0);
-      } else if (posX > (2.0*width/3.0)) {
         RotateRobot(robot, -2.0);
+      } else if (posX > (2.0*width/3.0)) {
+        RotateRobot(robot, 2.0);
       } else {
         // ball in the center!
+        printf ("Ball is center\n");
         break;
       }
     } else {
@@ -99,6 +102,35 @@ void CenterRobotOnBall(RobotCom* robot, CvCapture* capture) {
       RotateRobot(robot, 5.0);
     }
   }
+}
+
+void RobotArmDown(RobotCom* robot) {
+  printf("Rotate robot arm\n");
+  RobotPos[4] = 90*3.14159/180.0;
+  robot->control(JTRACK, RobotPos, 8);
+  sleep(2);
+}
+
+void MoveForward(RobotCom* robot, double dist) {
+  printf("Moving robot forward\n");
+  RobotPos[0] = RobotPos[0] + dist;
+  robot->control(JTRACK,RobotPos, 8);
+  sleep(2);
+}
+
+void MoveForwardToBall(RobotCom* robot, CvCapture* capture) {
+  while (!ballInWorkspace(capture)) {
+    MoveForward(robot, 0.1);
+    CenterRobotOnBall(robot, capture);
+  }
+}
+
+bool ballInWorkspace(CvCapture* capture) {
+  int posX, posY;
+  findBallPos(capture, posX, posY);
+  // Check for ball to be in workspace
+  return true;
+
 }
 
 int main(int argc, char** argv)
@@ -139,7 +171,8 @@ int main(int argc, char** argv)
   */
 
   CenterRobotOnBall(robot, capture);
-
+  RobotArmDown(robot);
+  MoveForwardToBall(robot, capture);
   cvReleaseCapture( &capture );
   cvDestroyWindow("video"); // destroys all windows
   cvDestroyWindow("thresh"); // destroys all windows
