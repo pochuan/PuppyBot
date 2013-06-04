@@ -18,6 +18,8 @@ int Hue = 40;
 int Sat = 150;
 int Val = 150;
 float RobotPos[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+float YThresh[] = {50, 80, 100, 200, 400, 800};
+int threshold = 50;
 
 void RotateRobot(RobotCom* Robot, double DegCCRot);
 IplImage* GetThresholdedImage(IplImage* img, CvScalar minHSV, CvScalar maxHSV);
@@ -133,6 +135,19 @@ bool ballInWorkspace(CvCapture* capture) {
 
 }
 
+void FloatAndReportJointAngles(RobotCom* robot) {
+  robot->control(FLOAT,RobotPos, 8);
+  printf("Float\n");
+  while(true) {
+    float data_in[8];
+ printf("Almost get status\n");
+    robot->getStatus(GET_JPOS, data_in);
+  printf("Get status\n");
+    std::cout<<"Joint angles are "<<data_in[0]<<" "<<data_in[1]<<" "<<data_in[2]<<" "<<data_in[3]<<" "<<data_in[4]<<" "<<data_in[5]<<" "<<data_in[6]<<" "<<data_in[7]<<std::endl;
+    sleep(1);
+  }
+}
+
 int main(int argc, char** argv)
 {
   std::cout<<"This program tests the network connectivity"<<std::endl;
@@ -156,26 +171,26 @@ int main(int argc, char** argv)
     exit(0);
   }
 
-  cvNamedWindow("video", CV_WINDOW_AUTOSIZE);
+/*  cvNamedWindow("video", CV_WINDOW_AUTOSIZE);
   cvNamedWindow("thresh", CV_WINDOW_AUTOSIZE);
 
   cvCreateTrackbar("Hue","thresh", &Hue, 245, NULL);
   cvCreateTrackbar("Saturation","thresh", &Sat, 245, NULL);
   cvCreateTrackbar("Value","thresh", &Val, 245, NULL);
-
+*/
   std::cout<<"Sucessfully connected!"<<std::endl;
 
   /****************************************/
   //TEST 2: SEND MESSAGE TO THE SERVO SERVER
   /***************************************
   */
-
-  CenterRobotOnBall(robot, capture);
-  RobotArmDown(robot);
-  MoveForwardToBall(robot, capture);
-  cvReleaseCapture( &capture );
-  cvDestroyWindow("video"); // destroys all windows
-  cvDestroyWindow("thresh"); // destroys all windows
+    FloatAndReportJointAngles(robot);
+//  CenterRobotOnBall(robot, capture);
+//  RobotArmDown(robot);
+//  MoveForwardToBall(robot, capture);
+//  cvReleaseCapture( &capture );
+//  cvDestroyWindow("video"); // destroys all windows
+//  cvDestroyWindow("thresh"); // destroys all windows
 
   /****************************************/
   //TEST 3: RECEIVE REPLIES FROM THE SERVO SERVER
