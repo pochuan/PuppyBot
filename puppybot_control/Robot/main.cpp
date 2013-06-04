@@ -19,7 +19,7 @@ int Sat = 150;
 int Val = 150;
 float RobotPos[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 float YThresh[] = {50, 80, 100, 200, 400, 800};
-int threshold = 50;
+int YCritThresh = 50;
 
 void RotateRobot(RobotCom* Robot, double DegCCRot);
 IplImage* GetThresholdedImage(IplImage* img, CvScalar minHSV, CvScalar maxHSV);
@@ -90,9 +90,9 @@ void CenterRobotOnBall(RobotCom* robot, CvCapture* capture) {
 
   while (true){
     if (findBallPos(capture, posX, posY)){
-      if (posX < (width/3.0)) {
+      if (posX < (2*width/5.0)) {
         RotateRobot(robot, -2.0);
-      } else if (posX > (2.0*width/3.0)) {
+      } else if (posX > (3.0*width/5.0)) {
         RotateRobot(robot, 2.0);
       } else {
         // ball in the center!
@@ -108,22 +108,36 @@ void CenterRobotOnBall(RobotCom* robot, CvCapture* capture) {
 
 void RobotArmDown(RobotCom* robot) {
   printf("Rotate robot arm\n");
-  RobotPos[4] = 90*3.14159/180.0;
+  RobotPos[4] = 1.63;
+  RobotPos[6] = 1.63;
   robot->control(JTRACK, RobotPos, 8);
   sleep(2);
 }
 
 void MoveForward(RobotCom* robot, double dist) {
-  printf("Moving robot forward\n");
+  printf("Moving robot forward %f\n", dist);
+  if (dist == 0) return;
+
   RobotPos[0] = RobotPos[0] + dist;
   robot->control(JTRACK,RobotPos, 8);
-  sleep(2);
+  sleep(10);
 }
 
 void MoveForwardToBall(RobotCom* robot, CvCapture* capture) {
+  int posX, posY;
+  printf("move Forward To Ball\n");
   while (!ballInWorkspace(capture)) {
-    MoveForward(robot, 0.1);
+    findBallPos(capture, posX, posY);
+    double dist = 30;
+    if (posY < 700) {
+      double cube = posY*posY*posY;
+      double sqr = posY*posY;
+      dist = 0.00000024646*cube - 0.00021717*sqr + 0.073435*posY + 0.47217;
+      dist = 0.0254*dist;
+    } 
+    MoveForward(robot, dist);
     CenterRobotOnBall(robot, capture);
+
   }
 }
 
@@ -131,8 +145,10 @@ bool ballInWorkspace(CvCapture* capture) {
   int posX, posY;
   findBallPos(capture, posX, posY);
   // Check for ball to be in workspace
-  return true;
-
+  if (posY < 250) {
+    return true;
+  }
+  return false;
 }
 
 void FloatAndReportJointAngles(RobotCom* robot) {
@@ -184,10 +200,10 @@ int main(int argc, char** argv)
   //TEST 2: SEND MESSAGE TO THE SERVO SERVER
   /***************************************
   */
-    FloatAndReportJointAngles(robot);
-//  CenterRobotOnBall(robot, capture);
+//    FloatAndReportJointAngles(robot);
+ CenterRobotOnBall(robot, capture);
 //  RobotArmDown(robot);
-//  MoveForwardToBall(robot, capture);
+  MoveForwardToBall(robot, capture);
 //  cvReleaseCapture( &capture );
 //  cvDestroyWindow("video"); // destroys all windows
 //  cvDestroyWindow("thresh"); // destroys all windows
