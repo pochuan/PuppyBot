@@ -18,7 +18,6 @@ int Hue = 40;
 int Sat = 150;
 int Val = 150;
 float RobotPos[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-float YThresh[] = {50, 80, 100, 200, 400, 800};
 int YCritThresh = 50;
 
 void RotateRobot(RobotCom* Robot, double DegCCRot);
@@ -26,6 +25,32 @@ IplImage* GetThresholdedImage(IplImage* img, CvScalar minHSV, CvScalar maxHSV);
 bool findBallPos(CvCapture* capture, int* lastX, int* lastY );
 void CenterRobotOnBall(RobotCom* robot, CvCapture* capture);
 bool ballInWorkspace(CvCapture* capture);
+
+void RobotPositionReached(RobotCom* robot) {
+  float pos[8];
+  int count = 0;
+  while(true) {
+    bool reached = true;
+    robot->getStatus(GET_JPOS, pos);
+    for (int i=0; i <2; i++){
+      if (abs(pos[i]-RobotPos[i]) >= 0.003) {
+        reached = false;
+      }
+    }
+    if (abs(pos[2]-RobotPos[2]) >= 0.001) {
+      reached = false;
+    }
+    for (int i=3; i <8; i++){
+      if (abs(pos[i]-RobotPos[i]) >= 0.003) {
+        reached = false;
+      }
+    }
+
+    if (reached) break;
+    //printf("Position not reached %i\n", count);
+  }
+  sleep(1);
+}
 
 bool findBallPos(CvCapture* capture, int& posX, int& posY) {
   IplImage* frame = cvQueryFrame( capture );
@@ -78,10 +103,10 @@ IplImage* GetThresholdedImage(IplImage* img, CvScalar minHSV, CvScalar maxHSV) {
 
 void RotateRobot(RobotCom* robot, double degCCRot) {
   double radians = degCCRot*3.14159 / 180.0;
-  printf("Rotate robot to %f\n", radians + RobotPos[2]);
+  printf("Rotate robot to %f\n", degCCRot);
   RobotPos[2] += radians;
   robot->control(JTRACK, RobotPos, 8);
-  sleep(2);
+  RobotPositionReached(robot);
 }
 
 void CenterRobotOnBall(RobotCom* robot, CvCapture* capture) {
@@ -90,10 +115,10 @@ void CenterRobotOnBall(RobotCom* robot, CvCapture* capture) {
 
   while (true){
     if (findBallPos(capture, posX, posY)){
-      if (posX < (2*width/5.0)) {
-        RotateRobot(robot, -2.0);
-      } else if (posX > (3.0*width/5.0)) {
-        RotateRobot(robot, 2.0);
+      if (posX < (width/3.0)) {
+        RotateRobot(robot, -1.0);
+      } else if (posX > (2.0*width/3.0)) {
+        RotateRobot(robot, 1.0);
       } else {
         // ball in the center!
         printf ("Ball is center\n");
@@ -101,7 +126,7 @@ void CenterRobotOnBall(RobotCom* robot, CvCapture* capture) {
       }
     } else {
       // if ball not found, rotate 5 deg cc
-      RotateRobot(robot, 5.0);
+      RotateRobot(robot, 3.0);
     }
   }
 }
@@ -111,16 +136,17 @@ void RobotArmDown(RobotCom* robot) {
   RobotPos[4] = 1.63;
   RobotPos[6] = 1.63;
   robot->control(JTRACK, RobotPos, 8);
-  sleep(2);
+  RobotPositionReached(robot);
 }
 
 void MoveForward(RobotCom* robot, double dist) {
   printf("Moving robot forward %f\n", dist);
   if (dist == 0) return;
 
-  RobotPos[0] = RobotPos[0] + dist;
+  RobotPos[0] = RobotPos[0] + dist*cos(RobotPos[2]);
+  RobotPos[1] = RobotPos[1] - dist*sin(RobotPos[2]);
   robot->control(JTRACK,RobotPos, 8);
-  sleep(10);
+  RobotPositionReached(robot);
 }
 
 void MoveForwardToBall(RobotCom* robot, CvCapture* capture) {
@@ -128,15 +154,17 @@ void MoveForwardToBall(RobotCom* robot, CvCapture* capture) {
   printf("move Forward To Ball\n");
   while (!ballInWorkspace(capture)) {
     findBallPos(capture, posX, posY);
-    double dist = 30;
+    double dist = 30*0.0254;
+    printf("Current posY: %f\n", posY);
     if (posY < 700) {
       double cube = posY*posY*posY;
       double sqr = posY*posY;
       dist = 0.00000024646*cube - 0.00021717*sqr + 0.073435*posY + 0.47217;
       dist = 0.0254*dist;
     } 
+    printf("Move Forward %f\n", dist);
     MoveForward(robot, dist);
-    CenterRobotOnBall(robot, capture);
+    //CenterRobotOnBall(robot, capture);
 
   }
 }
@@ -156,11 +184,12 @@ void FloatAndReportJointAngles(RobotCom* robot) {
   printf("Float\n");
   while(true) {
     float data_in[8];
- printf("Almost get status\n");
     robot->getStatus(GET_JPOS, data_in);
-  printf("Get status\n");
-    std::cout<<"Joint angles are "<<data_in[0]<<" "<<data_in[1]<<" "<<data_in[2]<<" "<<data_in[3]<<" "<<data_in[4]<<" "<<data_in[5]<<" "<<data_in[6]<<" "<<data_in[7]<<std::endl;
-    sleep(1);
+    std::cout<<"J:"<<data_in[0]<<" "<<data_in[1]<<std::endl;
+    std::cout<<data_in[2]<<" "<<data_in[3]<<std::endl;
+    std::cout<<data_in[4]<<" "<<data_in[5]<<std::endl;
+    std::cout<<data_in[6]<<" "<<data_in[7]<<std::endl;
+    sleep(2);
   }
 }
 
@@ -180,7 +209,7 @@ int main(int argc, char** argv)
   }
 
   // initialize camera + window screens
-  CvCapture* capture = cvCaptureFromCAM(CV_CAP_ANY);
+  CvCapture* capture = cvCaptureFromCAM(1);
   if ( !capture ) {
     fprintf( stderr, "ERROR: Could not initialize capturing. \n" );
     getchar();
