@@ -33,15 +33,20 @@ void RobotPositionReached(RobotCom* robot) {
     bool reached = true;
     robot->getStatus(GET_JPOS, pos);
     for (int i=0; i <2; i++){
-      if (abs(pos[i]-RobotPos[i]) >= 0.003) {
+      float diff = pos[i] - RobotPos[i];
+      if (fabs(diff) >= 0.05) {
+        printf("fail: %i %f\n", i, diff);
         reached = false;
       }
     }
-    if (abs(pos[2]-RobotPos[2]) >= 0.001) {
+    float diff = (pos[2]) - RobotPos[2];
+    if (fabs(diff) >= 0.003) {
       reached = false;
     }
     for (int i=3; i <8; i++){
-      if (abs(pos[i]-RobotPos[i]) >= 0.003) {
+      float diff = pos[i] - RobotPos[i];
+      if (fabs(diff) >= 0.05) {
+        printf("fail: %i %f\n", i, diff);
         reached = false;
       }
     }
@@ -102,10 +107,17 @@ IplImage* GetThresholdedImage(IplImage* img, CvScalar minHSV, CvScalar maxHSV) {
 }
 
 void RotateRobot(RobotCom* robot, double degCCRot) {
-  double radians = degCCRot*3.14159 / 180.0;
+  float radians = ((float)degCCRot)*3.14159 / 180.0;
   printf("Rotate robot to %f\n", degCCRot);
-  RobotPos[2] += radians;
-  robot->control(JTRACK, RobotPos, 8);
+  float pos[8];
+  robot->getStatus(GET_JPOS, pos);
+  pos[2] += radians;
+
+  for(int i=0; i<8; i++) {
+    RobotPos[i] = pos[i];
+  }
+
+  robot->control(JTRACK, pos, 8);
   RobotPositionReached(robot);
 }
 
@@ -140,12 +152,23 @@ void RobotArmDown(RobotCom* robot) {
 }
 
 void MoveForward(RobotCom* robot, double dist) {
-  printf("Moving robot forward %f\n", dist);
   if (dist == 0) return;
 
-  RobotPos[0] = RobotPos[0] + dist*cos(RobotPos[2]);
-  RobotPos[1] = RobotPos[1] - dist*sin(RobotPos[2]);
-  robot->control(JTRACK,RobotPos, 8);
+  printf("Moving robot forward %f\n", dist);
+  //printf("   w %f %f\n", dist*cos(RobotPos[2]), dist*sin(RobotPos[2]));
+  //RobotPos[0] = RobotPos[0] + dist;//*cos(RobotPos[2]);
+  float pos[8];
+  robot->getStatus(GET_JPOS, pos);
+  pos[0] += ((float)dist)*cosf(pos[2]);
+  pos[1] += ((float)dist)*sinf(pos[2]);
+
+  for(int i=0; i<8; i++) {
+    RobotPos[i] = pos[i];
+  }
+
+  //RobotPos[2] = 0.0;
+  //RobotPos[1] = RobotPos[1] + dist*sin(RobotPos[2]);
+  robot->control(JTRACK,pos, 8);
   RobotPositionReached(robot);
 }
 
@@ -154,14 +177,15 @@ void MoveForwardToBall(RobotCom* robot, CvCapture* capture) {
   printf("move Forward To Ball\n");
   while (!ballInWorkspace(capture)) {
     findBallPos(capture, posX, posY);
-    double dist = 30*0.0254;
+    float dist = 30*0.0254;
     printf("Current posY: %f\n", posY);
     if (posY < 700) {
-      double cube = posY*posY*posY;
-      double sqr = posY*posY;
+      float cube = posY*posY*posY;
+      float sqr = posY*posY;
       dist = 0.00000024646*cube - 0.00021717*sqr + 0.073435*posY + 0.47217;
       dist = 0.0254*dist;
     } 
+    dist = 3.0*dist / 4.0;
     printf("Move Forward %f\n", dist);
     MoveForward(robot, dist);
     //CenterRobotOnBall(robot, capture);
@@ -230,9 +254,12 @@ int main(int argc, char** argv)
   /***************************************
   */
 //    FloatAndReportJointAngles(robot);
- CenterRobotOnBall(robot, capture);
-//  RobotArmDown(robot);
+ // RotateRobot(robot, 30);
+ // MoveForward(robot,2);
+  CenterRobotOnBall(robot, capture);
   MoveForwardToBall(robot, capture);
+//  RobotArmDown(robot);
+
 //  cvReleaseCapture( &capture );
 //  cvDestroyWindow("video"); // destroys all windows
 //  cvDestroyWindow("thresh"); // destroys all windows

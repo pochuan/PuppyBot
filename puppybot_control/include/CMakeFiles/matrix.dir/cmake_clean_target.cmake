@@ -1,3 +1,3 @@
 FILE(REMOVE_RECURSE
-  "/Users/paulchen/Documents/workspace/puppyBot/puppybot_control/lib/Debug/libmatrix.a"
+  "/Users/jjong/code/class/cs225a/final_project/puppybot_control/lib/Debug/libmatrix.a"
 )

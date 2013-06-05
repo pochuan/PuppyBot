@@ -20,7 +20,7 @@ IplImage* GetThresholdedImage(IplImage* img, CvScalar minHSV, CvScalar maxHSV) {
 }
 
 void colorTracking() {
-	CvCapture* capture = cvCaptureFromCAM( CV_CAP_ANY );
+	CvCapture* capture = cvCaptureFromCAM( 1 );
 	if ( !capture ) {
 		fprintf( stderr, "ERROR: Could not initialize capturing. \n" );
 		getchar();

@@ -53,10 +53,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /opt/local/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot
+CMAKE_SOURCE_DIR = /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot
+CMAKE_BINARY_DIR = /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot
 
 #=============================================================================
 # Target rules for target CMakeFiles/simple_client_2013.dir
@@ -65,7 +65,7 @@ CMAKE_BINARY_DIR = /Users/paulchen/Documents/workspace/puppyBot/puppybot_control
 CMakeFiles/simple_client_2013.dir/all:
 	$(MAKE) -f CMakeFiles/simple_client_2013.dir/build.make CMakeFiles/simple_client_2013.dir/depend
 	$(MAKE) -f CMakeFiles/simple_client_2013.dir/build.make CMakeFiles/simple_client_2013.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot/CMakeFiles  1 2 3
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot/CMakeFiles  1 2 3
 	@echo "Built target simple_client_2013"
 .PHONY : CMakeFiles/simple_client_2013.dir/all
 
@@ -75,9 +75,9 @@ all: CMakeFiles/simple_client_2013.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/simple_client_2013.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/simple_client_2013.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/paulchen/Documents/workspace/puppyBot/puppybot_control/Robot/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jjong/code/class/cs225a/final_project/puppybot_control/Robot/CMakeFiles 0
 .PHONY : CMakeFiles/simple_client_2013.dir/rule
 
 # Convenience name for target.
