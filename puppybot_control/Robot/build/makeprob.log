@@ -1,9 +1,0 @@
-/opt/local/bin/cmake -H/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/simple_client_2013/Robot -B/Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/simple_client_2013/Robot/build --check-build-system CMakeFiles/Makefile.cmake 0
-/opt/local/bin/cmake -E cmake_progress_start /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/simple_client_2013/Robot/build/CMakeFiles /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/simple_client_2013/Robot/build/CMakeFiles/progress.marks
-make -f CMakeFiles/Makefile2 all
-make -f CMakeFiles/simple_client_2013.dir/build.make CMakeFiles/simple_client_2013.dir/depend
-cd /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/simple_client_2013/Robot/build && /opt/local/bin/cmake -E cmake_depends "Unix Makefiles" /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/simple_client_2013/Robot /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/simple_client_2013/Robot /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/simple_client_2013/Robot/build /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/simple_client_2013/Robot/build /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/simple_client_2013/Robot/build/CMakeFiles/simple_client_2013.dir/DependInfo.cmake --color=
-make -f CMakeFiles/simple_client_2013.dir/build.make CMakeFiles/simple_client_2013.dir/build
-Linking CXX executable simple_client_2013
-/opt/local/bin/cmake -E cmake_link_script CMakeFiles/simple_client_2013.dir/link.txt --verbose=1
-/usr/bin/c++   -Wall -fPIC -O3 -std=c++0x -DW_THREADING_ON -DNDEBUG -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/simple_client_2013.dir/RobotCom.cpp.o CMakeFiles/simple_client_2013.dir/unitMsg.cpp.o CMakeFiles/simple_client_2013.dir/ExampleUsage.cpp.o  -o simple_client_2013  /Users/Vaibhav/Documents/Study/2013bSpring/CS225A/Project/simple_client_2013/lib/Release/libmatrix.a 

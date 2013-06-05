@@ -217,6 +217,29 @@ void FloatAndReportJointAngles(RobotCom* robot) {
   }
 }
 
+void PickUpBall(RobotCom* robot) {
+  printf("Pick up ball\n");
+
+  printf("open gripper\n");
+  robot->controlGripper( (float)10 );
+  
+  float RobotPos[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+  RobotPos[4] = 1.7;
+  RobotPos[6] = 1.3;
+  robot->control(JTRACK, RobotPos, 8);
+  sleep(3);
+  
+  printf("Close Gripper\n");
+  robot->controlGripper( (float)-5 );
+  sleep(5);
+
+  printf("raise arm\n");
+  RobotPos[6] = 0.0;
+  robot->control(JTRACK, RobotPos, 8);
+  sleep(3);
+  
+}
+
 int main(int argc, char** argv)
 {
   std::cout<<"This program tests the network connectivity"<<std::endl;
@@ -233,7 +256,7 @@ int main(int argc, char** argv)
   }
 
   // initialize camera + window screens
-  CvCapture* capture = cvCaptureFromCAM(1);
+  CvCapture* capture = cvCaptureFromCAM(0);
   if ( !capture ) {
     fprintf( stderr, "ERROR: Could not initialize capturing. \n" );
     getchar();
@@ -256,9 +279,18 @@ int main(int argc, char** argv)
 //    FloatAndReportJointAngles(robot);
  // RotateRobot(robot, 30);
  // MoveForward(robot,2);
-  CenterRobotOnBall(robot, capture);
-  MoveForwardToBall(robot, capture);
+  // CenterRobotOnBall(robot, capture);
+  // MoveForwardToBall(robot, capture);
 //  RobotArmDown(robot);
+  int posX, posY;
+  while(true) {
+    findBallPos(capture, posX, posY);
+    std::cout<<"X: "<<posX<<" Y: "<<posY<<std::endl;
+    if (posY > 500 && posY < 680) {
+      PickUpBall(robot);
+      break;
+    }
+  }
 
 //  cvReleaseCapture( &capture );
 //  cvDestroyWindow("video"); // destroys all windows
