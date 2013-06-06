@@ -23,7 +23,6 @@ int counter = 0;
 RobotCom* robot;
 CvCapture* capture;
 
-
 void RotateRobot(double DegCCRot);
 IplImage* GetThresholdedImage(IplImage* img, CvScalar minHSV, CvScalar maxHSV);
 bool findBallPos(int* lastX, int* lastY );
@@ -32,6 +31,7 @@ bool ballInWorkspace();
 
 void RobotPositionReached() {
   float pos[8];
+  int count = 0;
   while(true) {
     bool reached = true;
     robot->getStatus(GET_JPOS, pos);
@@ -113,16 +113,14 @@ void RotateRobot(double degCCRot) {
   float radians = ((float)degCCRot)*3.14159 / 180.0;
   float pos[8];
   robot->getStatus(GET_JPOS, pos);
-  pos[0] = 0.0;
-  pos[1] = 0.0;
-  pos[2] = radians;
+  pos[2] += radians;
 
   for(int i=0; i<8; i++) {
     RobotPos[i] = pos[i];
   }
 
   robot->control(JTRACK, pos, 8);
-//  RobotPositionReached();
+  RobotPositionReached();
 }
 
 void CenterRobotOnBall(bool prec) {
@@ -171,13 +169,13 @@ void MoveForward(double dist) {
   printf("Moving robot forward %f\n", dist);
   // RobotPos[0] = RobotPos[0] +(float) dist;//*cos(RobotPos[2]);
   float pos[8];
+  sleep(2);
   robot->getStatus(GET_JPOS, pos);
   // pos[0] += ((float)dist)*cosf(pos[2]);
   // pos[1] += ((float)dist)*sinf(pos[2]);
 
-  pos[0] = (float) dist;
+  pos[0] += (float) dist;
   pos[1] = 0.0;
-  pos[2] = 0.0;
   printf(" %f %f\n", pos[1], pos[2]);
 
   for(int i=0; i<1; i++) {
@@ -189,7 +187,7 @@ void MoveForward(double dist) {
   //RobotPos[1] = RobotPos[1] + dist*sin(RobotPos[2]);
   robot->control(JTRACK,pos, 8);
   // robot->control(JTRACK,RobotPos, 8);
-//  RobotPositionReached();
+  RobotPositionReached();
   printf(" move forward end %d\n", robot);
 }
 
@@ -246,16 +244,12 @@ void PickUpBall() {
 //  float RobotPos[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
   float pos[8];
   robot->getStatus(GET_JPOS, pos);
-  pos[0] = 0.0;
-  pos[1] = 0.0;
-  pos[2] = 0.0;
 
   pos[4] = 0.5;
   //RobotPos[4] = 0.5;
   robot->control(JTRACK, pos, 8);
   sleep(1.5);
-  pos[3] = 4*3.14159/180.0;
-  pos[4] = 1.60;
+  pos[4] = 1.7;
   pos[6] = 1.3;
   robot->control(JTRACK, pos, 8);
   sleep(3);
@@ -273,70 +267,6 @@ void PickUpBall() {
   for(int i=0; i<8; i++) {
 //    RobotPos[i] = pos[i];
   }
-}
-
-void trackBall() {
-    int frameWidth = cvGetCaptureProperty(capture, CV_CAP_PROP_FRAME_WIDTH);
-    int frameHeight = cvGetCaptureProperty(capture, CV_CAP_PROP_FRAME_HEIGHT);
-    int frameCenterX = frameWidth/2;
-    int frameCenterY = frameHeight/2;
-
-    int posX, posY;
-    while(true) {
-        printf("++++++++++++");
-//        printf("findBallPos\n");
-        bool onScreen = findBallPos(posX, posY);
-        printf(" X: %i Y:%i\n", posX, posY);
-        if (posX < 0 || posY < 0) {
-            continue;
-        }
-        
-        bool d1 = false;
-        bool d2 = false;
-        if (!onScreen) {
-            printf("Ball not on screen, Rotate and search\n");
-            MoveForward(0.0);
-            RotateRobot(5.0);
-        } else {
-            if (posY > 1000) {
-                printf("Ball far away\n");
-                MoveForward(0.4);
-            } else if (posY > 760) {
-                printf("Ball close\n");
-                MoveForward(0.1);
-            } else if (posY < 680) {
-                printf("Ball too close\n");
-                MoveForward(-0.1);
-            } else {
-                printf("Ball right disatance\n");
-                MoveForward(0.0);
-                d1 = true;
-            }
-            
-            printf("  %i > %i\n", posX, frameWidth);
-            printf("  %i < %i\n", posX, frameCenterX);
-            if (posX > (frameCenterX + 100)) {
-                printf("Ball on left\n");
-                RotateRobot(5.0);
-            } else if (posX < (frameCenterX - 100)) {
-                printf("Ball on right\n");
-                RotateRobot(-5.0);
-            } else {
-                printf("Ball centered\n");
-                RotateRobot(0.0);
-                d2 = true;
-            }
-        }
-        
-        if (d1 && d2) {
-            printf("Ball in workspace\n");
-            break;
-        }
-        
-    }
-    printf("Pick up ball\n");
-    CenterRobotOnBall(true);
-    PickUpBall();
 }
 
 int main(int argc, char** argv)
@@ -375,31 +305,48 @@ int main(int argc, char** argv)
   //TEST 2: SEND MESSAGE TO THE SERVO SERVER
   /***************************************
   */
-//  RotateRobot(5);
-//  sleep(2);
-//  RotateRobot(-5);
-//  sleep(1);
-//  MoveForward(0.01);
-//  sleep(1);
-//  MoveForward(0.0);
-//  exit(0);
-//   CenterRobotOnBall(false);
-//   MoveForwardToBall();
-    float pos[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-    robot->control(JTRACK,pos, 8);
-    trackBall();
-    
-//  int posX, posY;
-//  while(true) {
-//    printf("findBallPos\n");
-//    bool onScreen = findBallPos(posX, posY);
-//    printf(" X: %i Y:%i\n", posX, posY);
-//    if (posY > 500 && posY < 680) {
-//      CenterRobotOnBall(true);
-//      PickUpBall();
-//      break;
-//    }
-//  }
+  float data_in[8];
+  robot->getStatus(GET_JPOS, data_in);
+  std::cout<<"Joint angles are "<<data_in[0]<<" "<<data_in[1]<<" "<<data_in[2]<<" "<<data_in[3]<<" "<<data_in[4]<<" "<<data_in[5]<<" "<<data_in[6]<<" "<<data_in[7]<<std::endl;
+  RotateRobot(10);
+  sleep(2);
+  data_in[8];
+  robot->getStatus(GET_JPOS, data_in);
+  std::cout<<"Joint angles are "<<data_in[0]<<" "<<data_in[1]<<" "<<data_in[2]<<" "<<data_in[3]<<" "<<data_in[4]<<" "<<data_in[5]<<" "<<data_in[6]<<" "<<data_in[7]<<std::endl;
+  MoveForward(0.25);
+  sleep(2);
+  data_in[8];
+  robot->getStatus(GET_JPOS, data_in);
+  std::cout<<"Joint angles are "<<data_in[0]<<" "<<data_in[1]<<" "<<data_in[2]<<" "<<data_in[3]<<" "<<data_in[4]<<" "<<data_in[5]<<" "<<data_in[6]<<" "<<data_in[7]<<std::endl;
+  sleep(2);
+  RotateRobot(10);
+  data_in[8];
+  robot->getStatus(GET_JPOS, data_in);
+  std::cout<<"Joint angles are "<<data_in[0]<<" "<<data_in[1]<<" "<<data_in[2]<<" "<<data_in[3]<<" "<<data_in[4]<<" "<<data_in[5]<<" "<<data_in[6]<<" "<<data_in[7]<<std::endl;
+  sleep(2);
+  MoveForward(0.25);
+  data_in[8];
+  robot->getStatus(GET_JPOS, data_in);
+  std::cout<<"Joint angles are "<<data_in[0]<<" "<<data_in[1]<<" "<<data_in[2]<<" "<<data_in[3]<<" "<<data_in[4]<<" "<<data_in[5]<<" "<<data_in[6]<<" "<<data_in[7]<<std::endl;
+  RotateRobot(10);
+  sleep(2);
+  MoveForward(0.25);
+  exit(0); 
+  
+   CenterRobotOnBall(false);
+   MoveForwardToBall();
+
+  int posX, posY;
+  while(true) {
+    printf("findBallPos\n");
+    findBallPos(posX, posY);
+    printf(" X: %i Y:%i\n", posX, posY);
+    if (posY > 500 && posY < 680) {
+      CenterRobotOnBall(true);
+      PickUpBall();
+      break;
+    }
+  }
 
   printf("DONE ARM MOVEMENT\n");
   while(true){}
@@ -411,7 +358,7 @@ int main(int argc, char** argv)
   /****************************************/
   //TEST 3: RECEIVE REPLIES FROM THE SERVO SERVER
   /****************************************/
-  float data_in[8];
+  data_in[8];
   robot->getStatus(GET_JPOS, data_in);
   std::cout<<"Joint angles are "<<data_in[0]<<" "<<data_in[1]<<" "<<data_in[2]<<" "<<data_in[3]<<" "<<data_in[4]<<" "<<data_in[5]<<" "<<data_in[6]<<" "<<data_in[7]<<std::endl;
 
