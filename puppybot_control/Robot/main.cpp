@@ -190,7 +190,6 @@ void MoveForward(double dist) {
   robot->control(JTRACK,pos, 8);
   // robot->control(JTRACK,RobotPos, 8);
 //  RobotPositionReached();
-  printf(" move forward end %d\n", robot);
 }
 
 void MoveForwardToBall() {
@@ -254,7 +253,7 @@ void PickUpBall() {
   //RobotPos[4] = 0.5;
   robot->control(JTRACK, pos, 8);
   sleep(1.5);
-  pos[3] = 4*3.14159/180.0;
+  pos[3] = 6*3.14159/180.0;
   pos[4] = 1.60;
   pos[6] = 1.3;
   robot->control(JTRACK, pos, 8);
@@ -300,13 +299,13 @@ void trackBall() {
         } else {
             if (posY > 1000) {
                 printf("Ball far away\n");
-                MoveForward(0.4);
-            } else if (posY > 760) {
+                MoveForward(0.6);
+            } else if (posY > 700) {
                 printf("Ball close\n");
-                MoveForward(0.1);
+                MoveForward(0.05);
             } else if (posY < 680) {
                 printf("Ball too close\n");
-                MoveForward(-0.1);
+                MoveForward(-0.05);
             } else {
                 printf("Ball right disatance\n");
                 MoveForward(0.0);
@@ -337,6 +336,9 @@ void trackBall() {
     printf("Pick up ball\n");
     CenterRobotOnBall(true);
     PickUpBall();
+    RotateRobot(20);
+    sleep(0.5);
+    RotateRobot(0);
 }
 
 int main(int argc, char** argv)
@@ -387,8 +389,10 @@ int main(int argc, char** argv)
 //   MoveForwardToBall();
     float pos[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
     robot->control(JTRACK,pos, 8);
-    trackBall();
-    
+    while (true) {
+      trackBall();
+      getchar();
+    }
 //  int posX, posY;
 //  while(true) {
 //    printf("findBallPos\n");
